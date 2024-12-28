@@ -132,7 +132,7 @@
                 <td>Item Id</td>
                 <td>User Id</td>
                 <td>Item Name</td>
-                <td>Price</td>
+                <td>Total Price</td>
                 <td>Quantity</td>
                 <td>Remove from Cart</td>
             </tr>
@@ -158,30 +158,32 @@
             </tr>
             <% } %>
         </table>
+        
+        <br/><br/>
+        Grand Total is: 
+        <%
+            if (ui != null) {
+                ArrayList<Cart> cs = Cartdao.getAllCartItems((int) ui);
+                long tot = 0;
+                if (cs != null) {
+                    for (Cart t : cs) {
+                        tot += t.getPrice();
+                    }
+                }
+                out.println(tot);
+            }
+        %>
+        
+        
+        <br/><br/>
+        <form action="Checkout">
+            <input type="submit" value="Checkout">
+        </form>
     <% } %>
     
-    <br/><br/>
-    Grand Total is: 
-    <%
-        if (ui != null) {
-            ArrayList<Cart> cs = Cartdao.getAllCartItems((int) ui);
-            long tot = 0;
-            if (cs != null) {
-                for (Cart t : cs) {
-                    tot += t.getPrice();
-                }
-            }
-            out.println(tot);
-        }
-    %>
     
     <br/><br/>
     <a href="shopitems.jsp">Buy Items</a>
-    
-    <br/><br/>
-    <form action="Checkout">
-        <input type="submit" value="Checkout">
-    </form>
     
     <br/><br/>
     <a href="usertask.jsp">Back to User Portal</a>

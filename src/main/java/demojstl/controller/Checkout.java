@@ -58,7 +58,7 @@ public class Checkout extends HttpServlet {
                         Cartdao.deleteCart(uid, itid);
                 }
             }
-            response.sendRedirect("usercart.jsp");
+            response.sendRedirect("thankyou.jsp");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Checkout.class.getName()).log(Level.SEVERE, null, ex);
         }
