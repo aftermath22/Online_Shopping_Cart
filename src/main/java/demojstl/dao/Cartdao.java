@@ -23,7 +23,7 @@ public class Cartdao {
 	{
 		Connection con;
 		Class.forName("com.mysql.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/online_shopping", "root", "keval@102");
+	                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/online_shopping", "root", "QWERTY");
 		return con;
 	}
     public static void insertCart(Cart c) throws SQLException, ClassNotFoundException{
